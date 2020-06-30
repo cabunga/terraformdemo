@@ -15,8 +15,8 @@ variable "s3_bucket_name" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  count         = "${length(var.s3_bucket_name)}"
-  bucket        = "${element(var.s3_bucket_name, count.index)}"
+  count         = "length(var.s3_bucket_name)"
+  bucket        = "element(var.s3_bucket_name, count.index)"
   acl           = "private"
   force_destroy = "true"
     lifecycle_rule {
